@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, Switch } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,23 +11,19 @@ export const Header = () => {
             active: true,
         },
         {
-            name: "About",
-            slug: "/about",
-            active: true,
-        },
-        {
             name: "Exchange Rates",
             slug: "/exchange-rates",
             active: true,
         },
     ]
   return (
-    <>
+    <section >
     {
         navItems.map((item) => item?.active ? (
-            <Button onClick={() => navigate(item?.slug)}>{item?.name}</Button>
+            <Button key={item?.name} onClick={() => navigate(item?.slug)}>{item?.name}</Button>
         ): null)
     }
-    </>
+    <Switch/>
+    </section>
   )
 }
