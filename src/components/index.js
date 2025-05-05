@@ -1,9 +1,9 @@
-import { About } from "./about/About";
 import { ExchangeRates } from "./exchangeRates/ExchangeRates";
 import { Header } from "./header/Header";
+import { Home } from "./Home/Home";
 
 export {
-    About,
     ExchangeRates,
     Header,
+    Home,
 }
