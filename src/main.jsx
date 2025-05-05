@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { About, ExchangeRates } from "./components/index.js"; 
+import { ExchangeRates, Home } from "./components/index.js"; 
 import { ThemeContextProvider } from "./context/ThemeContextProvider.jsx";
 
 const router = createBrowserRouter([
@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/about",
-        element: <About />,
+        path: "/",
+        element: <Home />,
       },
       {
         path: "/exchange-rates",
