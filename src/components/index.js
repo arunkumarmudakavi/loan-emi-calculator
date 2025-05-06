@@ -1,6 +1,6 @@
-import { ExchangeRates } from "./exchangeRates/ExchangeRates";
-import { Header } from "./header/Header";
-import { Home } from "./home/Home"
+import { ExchangeRates } from "./exchangeRates/ExchangeRates.jsx";
+import { Header } from "./header/Header.jsx";
+import { Home } from "./Home/Home.jsx"
 
 export {
     ExchangeRates,
