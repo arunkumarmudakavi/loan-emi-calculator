@@ -15,7 +15,7 @@ export const SelectCurrency = () => {
     }
   return (
     <div>
-        <FormControl fullWidth>
+        <FormControl sx={{width:"8dvw"}}>
         <InputLabel id="demo-simple-select-label">Currency</InputLabel>
         <Select
           labelId="demo-simple-select-label"
