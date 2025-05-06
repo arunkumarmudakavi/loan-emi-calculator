@@ -1,6 +1,7 @@
-import { Button, Switch } from '@mui/material'
+import { Box, Button, useTheme } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -16,14 +17,15 @@ export const Header = () => {
             active: true,
         },
     ]
+    const theme = useTheme()
   return (
-    <section >
+    <Box sx={{bgcolor:theme.palette.background.default, color:theme.palette.primary.main}} >
     {
         navItems.map((item) => item?.active ? (
-            <Button key={item?.name} onClick={() => navigate(item?.slug)}>{item?.name}</Button>
+            <Button sx={{fontSize: 20}} key={item?.name} onClick={() => navigate(item?.slug)}>{item?.name}</Button>
         ): null)
     }
-    <Switch/>
-    </section>
+    <ThemeSwitcher/>
+    </Box>
   )
 }

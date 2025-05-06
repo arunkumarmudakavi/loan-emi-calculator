@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGet } from "../../hooks/useGet";
-import { List, ListItem, ListItemText, Grid, Typography } from "@mui/material";
+import { List, ListItem, ListItemText, Grid, Typography, useTheme, Box, CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export const ExchangeRates = () => {
   const [data, setData] = useState(null);
@@ -9,6 +10,9 @@ export const ExchangeRates = () => {
   const URL_ENDPOINT = `https://v6.exchangerate-api.com/v6/${
     import.meta.env.VITE_EXCHANGE_RATES_API_KEY
   }/latest/USD`;
+
+  const theme = useTheme();
+  const navigate = useNavigate()
 
   useEffect(() => {
     useGet(URL_ENDPOINT)
@@ -25,15 +29,15 @@ export const ExchangeRates = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading exchange rates...</div>;
+    return <Box sx={{height: "95dvh", display: "flex", justifyContent:"center", alignItems:"center"}}><CircularProgress/></Box>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return navigator("/error");
   }
 
   if (!data) {
-    return <div>No exchange rates available</div>;
+    return navigator("/error");
   }
 
   return (
@@ -41,7 +45,7 @@ export const ExchangeRates = () => {
       container
       spacing={{ xs: 2, md: 4 }}
       columns={{ xs: 1, sm: 8, md: 12 }}
-      sx={{ mx: 8, mt: 4 }}
+      sx={{ mx: 8, pt: 2, color: theme.palette.primary.main}}
     >
       {Object.entries(data).map(([currency, price]) => (
         <Grid key={currency} size={{ xs: 1, sm: 4, md: 4 }}>
