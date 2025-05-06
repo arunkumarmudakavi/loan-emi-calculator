@@ -8,6 +8,7 @@ import {
   TableCell,
   Typography,
   Box,
+  useTheme,
   
 } from "@mui/material";
 import { SelectCurrency } from "./SelectCurrency";
@@ -21,9 +22,9 @@ export const DataTable = ({ schedule, currency, emi }) => {
   const handleReset = () => {
     setDisplayTable(false)
   }
-
+const theme = useTheme()
   return (
-    <Box sx={{mx:20}}>
+    <Box sx={{mx:20, color: theme.palette.primary.main}}>
     <Typography variant="h4" component="h4">
       Monthly EMI: ${emi.toFixed(2)}
     </Typography>
@@ -32,7 +33,7 @@ export const DataTable = ({ schedule, currency, emi }) => {
       <ResetTable resetTable={handleReset}/>
       </Box>
 
-      <div>
+      
         <TableContainer sx={{  maxHeight: 440, borderLeft:1, borderRight:1, borderColor:"gray" }}>
         <Typography variant="h5" component="h5" sx={{ m:2}}>
           Ammortization Schedule ({currency})
@@ -58,7 +59,7 @@ export const DataTable = ({ schedule, currency, emi }) => {
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
+      
     </Box>
   );
 };
