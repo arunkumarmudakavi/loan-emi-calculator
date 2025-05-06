@@ -4,6 +4,8 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ExchangeRates, Home } from "./components/index.js"; 
 import { ThemeContextProvider } from "./context/ThemeContextProvider.jsx";
+import { CurrencyContextProvider } from "./context/CurrencyContextProvider.jsx";
+import { Error } from "./utils/Error.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,10 @@ const router = createBrowserRouter([
         path: "/exchange-rates",
         element: <ExchangeRates />,
       },
+      {
+        path: "/error",
+        element: <Error />,
+      },
     ],
   },
 ]);
@@ -25,7 +31,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeContextProvider>
+      <CurrencyContextProvider>
       <RouterProvider router={router}/>
+      </CurrencyContextProvider>
     </ThemeContextProvider>
   </StrictMode>
 );
