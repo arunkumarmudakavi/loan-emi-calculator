@@ -38,6 +38,7 @@ export const Home = () => {
           alignItems: "center",
           gap: 3,
           p: 4,
+          
 
         }}
       >
@@ -49,6 +50,7 @@ export const Home = () => {
             display: "flex",
             gap: 2,
             width: "80%",
+            flexDirection: { xs: "column", sm: "row" }
           }}
         >
           <TextField
@@ -73,7 +75,7 @@ export const Home = () => {
             fullWidth
           />
         </Box>
-        <Button variant="contained" onClick={handleCalculate}>
+        <Button variant="contained" onClick={handleCalculate} sx={{ width: { xs: "40%", md: "20dvw"} }} >
           CALCULATE
         </Button>
       </Box>

@@ -14,8 +14,8 @@ export const SelectCurrency = () => {
         
     }
   return (
-    <div>
-        <FormControl sx={{width:"8dvw"}}>
+    <>
+        <FormControl sx={{width:{ xs: "20vw", sm: "30vw", md: "8dvw" }}}>
         <InputLabel id="demo-simple-select-label">Currency</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -32,6 +32,6 @@ export const SelectCurrency = () => {
           <MenuItem value="CAD">CAD</MenuItem>
         </Select>
       </FormControl>
-    </div>
+    </>
   )
 }
