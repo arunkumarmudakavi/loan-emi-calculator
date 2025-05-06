@@ -1,4 +1,4 @@
-import { Button, TextField, Box, Typography } from "@mui/material";
+import { Button, TextField, Box, Typography, useTheme } from "@mui/material";
 import { useCalculateEMI } from "../../hooks/useCalculation";
 import { useContext, useEffect, useState } from "react";
 import { DataTable } from "../table/Table";
@@ -10,6 +10,7 @@ export const Home = () => {
   const [rate, setRate] = useState(null);
   const [year, setYear] = useState(null);
   const [schedule, setSchedule] = useState([]);
+
 
   const { currency, displayTable, setDisplayTable } = useContext(CurrencyContext);
 
@@ -26,6 +27,7 @@ export const Home = () => {
     setEMI(EMI);
     setSchedule(schedule);
   };
+  const theme = useTheme()
 
   return (
     <>
@@ -36,10 +38,10 @@ export const Home = () => {
           alignItems: "center",
           gap: 3,
           p: 4,
-          m: 4,
+
         }}
       >
-        <Typography variant="h3" component="h1">
+        <Typography variant="h3" component="h1" sx={{color: theme.palette.primary.main}}>
           Loan EMI Calculator
         </Typography>
         <Box
@@ -76,9 +78,9 @@ export const Home = () => {
         </Button>
       </Box>
 
-      {displayTable ? (
+      {displayTable && (
         <DataTable schedule={schedule} currency={currency} emi={emi} />
-      ) : null}
+      ) }
     </>
   );
 };
